@@ -3,9 +3,15 @@ local M = {}
 local root = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h:h")
 local built = root .. "/target/release/cppdoc"
 
-M.bin = vim.uv.fs_stat(built) and built or "cppdoc"
-M.key_map = "K"
+M.key = "K"
 M.filetypes = { "cpp", "cuda", "objcpp" }
+M.bin = vim.uv.fs_stat(built) and built or "cppdoc"
+
+function M.setup(opts)
+	for k, v in pairs(opts or {}) do
+		M[k] = v
+	end
+end
 
 local function std_key(entries)
 	for _, e in ipairs(entries or {}) do
@@ -19,7 +25,7 @@ local function std_key(entries)
 	end
 end
 
-function M.key(callback)
+function M.key_at_cursor(callback)
 	local client = vim.lsp.get_clients({ bufnr = 0, name = "clangd" })[1]
 	if not client then
 		return callback(nil)
@@ -31,7 +37,7 @@ function M.key(callback)
 end
 
 function M.hover()
-	M.key(function(key)
+	M.key_at_cursor(function(key)
 		if not key then
 			return vim.lsp.buf.hover()
 		end
@@ -46,9 +52,18 @@ function M.hover()
 end
 
 local function attach(buf)
-	if M.key_map and vim.api.nvim_buf_is_valid(buf) and vim.tbl_contains(M.filetypes, vim.bo[buf].filetype) then
-		vim.keymap.set("n", M.key_map, M.hover, { buffer = buf, desc = "cppdoc hover" })
+	if not M.key or not vim.api.nvim_buf_is_valid(buf) then
+		return
 	end
+	if not vim.tbl_contains(M.filetypes, vim.bo[buf].filetype) then
+		return
+	end
+	for _, m in ipairs(vim.api.nvim_buf_get_keymap(buf, "n")) do
+		if m.lhs == M.key and m.desc == "cppdoc hover" then
+			return
+		end
+	end
+	vim.keymap.set("n", M.key, M.hover, { buffer = buf, desc = "cppdoc hover" })
 end
 
 vim.api.nvim_create_autocmd({ "FileType", "LspAttach" }, {
@@ -56,14 +71,17 @@ vim.api.nvim_create_autocmd({ "FileType", "LspAttach" }, {
 		vim.schedule(function()
 			attach(a.buf)
 		end)
+		vim.defer_fn(function()
+			attach(a.buf)
+		end, 250)
 	end,
 })
 
-for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-	if vim.tbl_contains(M.filetypes, vim.bo[buf].filetype) then
+vim.schedule(function()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 		attach(buf)
 	end
-end
+end)
 
 vim.api.nvim_create_user_command("Cppdoc", M.hover, {})
 

@@ -4,7 +4,7 @@ header: <vector>
 since: C++98
 ---
 
-Returns the number of elements in the container.
+Returns the number of elements in the vector.
 
 ## Usage
 
@@ -12,7 +12,7 @@ Returns the number of elements in the container.
 size_type size() const;
 ```
 
-The number of elements in the container is returned as a `size_type`.
+The number of elements in the vector is returned as a `size_type`.
 
 ## Examples
 

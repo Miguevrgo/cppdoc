@@ -4,7 +4,7 @@ header: <vector>
 since: C++98
 ---
 
-Checks if the container has no elements.
+Checks if the vector has no elements.
 
 ## Usage
 

@@ -25,9 +25,9 @@ Inserts a copy of the elements in the range, if after the operation the new size
 #include <list>
 
 std::vector vec{1, 2, 3, 4};
-auto pos = std::next(container.begin());
+auto pos = std::next(vec.begin());
 assert(*pos == 2);
 const auto rg = std::list{-1, -2, -3};
-container.insert_range(pos, rg);
-assert(std::ranges::equal(container, std::vector{1, -1, -2, -3, 2, 3, 4}));
+vec.insert_range(pos, rg);
+assert(std::ranges::equal(vec, std::vector{1, -1, -2, -3, 2, 3, 4}));
 ```

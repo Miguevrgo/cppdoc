@@ -14,7 +14,7 @@ constexpr bool empty() const noexcept;
 
 Returns `true` if the array is empty, `false` otherwise.
 
-## Complexity
+## Time complexity
 
 O(1)
 

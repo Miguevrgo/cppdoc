@@ -20,7 +20,7 @@ iterator insert( const_iterator pos, std::initializer_list<T> ilist ); (5) [C++1
 1. Inserts a copy of `value` before `pos`.
 2. Inserts `value` before `pos`, using move semantics if possible.
 3. Inserts `count` copies of the `value` before `pos`.
-4. Inserts elements from range `[first, last]` before `pos`.
+4. Inserts elements from range `[first, last)` before `pos`.
 5. Inserts elements from initializer list `ilist` before `pos`.
 
 ## Exceptions

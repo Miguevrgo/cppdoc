@@ -16,7 +16,7 @@ iterator erase(const_iterator first, const_iterator last); (2) [C++11]
 ```
 
 1. Removes the element at pos from the vector.
-2. Removes the elements in the range `[first, last]` from the vector. Iterators and references to the elements are invalidated.
+2. Removes the elements in the range `[first, last)` from the vector. Iterators and references to the elements are invalidated.
 
 ## Time complexity
 

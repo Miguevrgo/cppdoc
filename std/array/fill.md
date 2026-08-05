@@ -14,7 +14,7 @@ void fill( const T& value );
 
 Assigns `value` to all the elements in the array.
 
-## Complexity
+## Time complexity
 
 Linear with the size of the array.
 

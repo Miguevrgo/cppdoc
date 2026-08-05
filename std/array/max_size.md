@@ -14,7 +14,7 @@ constexpr size_type max_size() const noexcept;
 
 The maximum number of elements is returned as a `size_type`.
 
-## Complexity
+## Time complexity
 
 O(1)
 

@@ -14,7 +14,7 @@ constexpr size_type size() const noexcept;
 
 The number of elements in the array is returned as a `size_type`.
 
-## Complexity
+## Time complexity
 
 O(1)
 

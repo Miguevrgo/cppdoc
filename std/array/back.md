@@ -13,7 +13,7 @@ reference back();
 const_reference back() const;
 ```
 
-Returns a reference to the last element of the container.
+Returns a reference to the last element of the array.
 
 ## Time complexity
 

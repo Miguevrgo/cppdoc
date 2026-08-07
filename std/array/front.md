@@ -13,7 +13,7 @@ reference front();
 const_reference front() const;
 ```
 
-Returns a reference to the first element of the container.
+Returns a reference to the first element of the array.
 
 ## Time complexity
 

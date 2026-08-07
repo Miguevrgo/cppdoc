@@ -14,12 +14,12 @@ template<class K>
 size_type count(const K& x) const; (2) [C++14]
 ```
 
-1. Returns the number of elements with key `key`. This is either 0 or 1 as this container does not allow duplicates.
+1. Returns the number of elements with key `key`. This is either 0 or 1 as map does not allow duplicates.
 2. Returns the number of elements with a key that compares equivalent to `x`, which can be of any type the map's comparator accepts, so no `Key` has to be built for the lookup. Only available if the comparator is transparent, like `std::less<>`.
 
 ## Time complexity
 
-Logarithmic in the size of the container plus linear in the number of elements found.
+Logarithmic in the size of the map plus linear in the number of elements found.
 
 ## Examples
 

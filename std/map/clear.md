@@ -12,7 +12,7 @@ Erases all elements from the map, with final size 0.
 void clear();
 ```
 
-Invalidates all references, pointers, and iterators referring to contained elements, the capacity of the map is unchanged and the map is cleaned.
+Invalidates all references, pointers, and iterators referring to contained elements. Every node is destroyed and freed, unlike `std::vector::clear`, which keeps its buffer.
 
 ## Time complexity
 

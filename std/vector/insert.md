@@ -29,10 +29,10 @@ If an exception is thrown other than by the constructors, the assignment operato
 
 ## Time complexity
 
-- (1,2) Constant plus linear in the distance between `pos` and end of container (as it has to displace all the elements to the right one posisition)
-- (3) Linear in `count` plus linear in the distance between `pos` and the end of the container.
-- (4) Linear in `std::distance(first, last)` plus linear in the distance between `pos` and the end of the container.
-- (5) Linear in `ilist.size()` plus linear in the distance between `pos` and the end of the container.
+- (1,2) Constant plus linear in the distance between `pos` and end of the vector (as it has to displace all the elements to the right one position)
+- (3) Linear in `count` plus linear in the distance between `pos` and the end of the vector.
+- (4) Linear in `std::distance(first, last)` plus linear in the distance between `pos` and the end of the vector.
+- (5) Linear in `ilist.size()` plus linear in the distance between `pos` and the end of the vector.
 
 ## Examples
 

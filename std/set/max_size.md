@@ -18,12 +18,11 @@ The maximum number of elements is returned as a `size_type`.
 
 ```cpp
 #include <set>
-#include <cassert>
 #include <print>
 #include <string>
 
 std::set<char> char_set;
-std::set<char> int_set;
+std::set<int> int_set;
 std::set<std::string> string_set;
 
 std::println("{}", char_set.max_size());   // 461168601842738790

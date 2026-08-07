@@ -27,7 +27,7 @@ Logarithmic in the size of the set plus linear in the number of elements found.
 #include <cassert>
 #include <set>
 
-std::set<int> numbers{{1}, {2}, {3}, {4}};
+std::set<int> numbers{1, 2, 3, 4};
 
 assert(numbers.count(1) == 1);
 assert(numbers.count(5) == 0);

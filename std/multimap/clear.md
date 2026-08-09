@@ -1,10 +1,10 @@
 ---
-symbol: std::multiset::clear
-header: <set>
+symbol: std::multimap::clear
+header: <map>
 since: C++98
 ---
 
-Erases all elements from the multiset, with final size 0.
+Erases all elements from the multimap, with final size 0.
 
 ## Usage
 
@@ -16,15 +16,16 @@ Invalidates all references, pointers, and iterators referring to contained eleme
 
 ## Time complexity
 
-Linear with the size of the multiset.
+Linear with the size of the multimap.
 
 ## Examples
 
 ```cpp
-#include <set>
+#include <map>
+#include <string>
 #include <cassert>
 
-std::multiset<int> values{1, 1, 2};
+std::multimap<std::string, int> values{{"a", 1}, {"a", 2}, {"b", 3}};
 assert(values.size() == 3);
 values.clear();
 assert(values.size() == 0);

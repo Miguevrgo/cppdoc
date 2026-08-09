@@ -20,15 +20,15 @@ The number of elements in the multiset is returned as a `size_type`.
 #include <set>
 #include <cassert>
 
-std::multiset<int> set;
-assert(set.size() == 0);
+std::multiset<int> values;
+assert(values.size() == 0);
 ```
 
 ```cpp
 #include <set>
 #include <cassert>
 
-std::multiset<char> set{};
-set.emplace('a');
-assert(set.size() == 1);
+std::multiset<char> values{};
+values.emplace('a');
+assert(values.size() == 1);
 ```

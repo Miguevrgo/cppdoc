@@ -27,5 +27,5 @@ std::rewind(tmp_file);
 
 char buf[8];
 auto name = std::fgets(buf, sizeof(buf), tmp_file);
-assert(name == "Alan Tu" == 0)
+assert(strcmp(name, "Alan Tu") == 0)
 ```

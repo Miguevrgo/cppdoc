@@ -12,7 +12,7 @@ Removes the element at the beginning of the deque.
 void pop_front();
 ```
 
-Only iterators and references to the removed element, and `end()`, are invalidated. If it is empty, the behaviour was undefined until C++26, after that if the implementation is hardened a constract violation occurs.
+Only iterators and references to the removed element, and `end()`, are invalidated. If it is empty, the behaviour was undefined until C++26, after that if the implementation is hardened a contract violation occurs.
 
 ## Time complexity
 

@@ -13,7 +13,7 @@ reference front();
 const_reference front() const;
 ```
 
-Returns a reference to the first element in the deque. If it is empty, the behaviour was undefined until C++26, after that if the implementation is hardened a constract violation occurs.
+Returns a reference to the first element in the deque. If it is empty, the behaviour was undefined until C++26, after that if the implementation is hardened a contract violation occurs.
 
 ## Time complexity
 

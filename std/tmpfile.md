@@ -18,6 +18,7 @@ Creates a temporary file which is opened as a binary file for update, at least T
 
 ```cpp
 #include <cstdio>
+#include <cassert>
 
 std::FILE* tmp_file = std::tmpfile();
 std::fputs("Hello, World!", tmp_file);

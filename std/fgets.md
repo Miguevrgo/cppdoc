@@ -19,7 +19,9 @@ Returns `str` on success and null pointer on failure, if EOF is encountered, it 
 ## Examples
 
 ```cpp
+#include <cassert>
 #include <cstdio>
+#include <cstring>
 
 std::FILE* tmp_file = std::tmpfile();
 std::fputs("Alan Turing!\n", tmp_file);
@@ -27,5 +29,5 @@ std::rewind(tmp_file);
 
 char buf[8];
 auto name = std::fgets(buf, sizeof(buf), tmp_file);
-assert(strcmp(name, "Alan Tu") == 0)
+assert(strcmp(name, "Alan Tu") == 0);
 ```

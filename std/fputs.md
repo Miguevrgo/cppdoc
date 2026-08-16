@@ -18,6 +18,7 @@ Returns a non-negative value on success, returns EOF and sets the `error` indica
 ## Examples
 
 ```cpp
+#include <cassert>
 #include <cstdio>
 
 int rc = std::fputs("Hello, world!\n", stdout);

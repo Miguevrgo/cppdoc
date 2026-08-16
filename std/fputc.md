@@ -17,6 +17,7 @@ Writes a character `ch` to the given `stream`. The character is casted to unsign
 ## Examples
 
 ```cpp
+#include <cassert>
 #include <cstdio>
 
 int r = std::fputc(0x78, stdout); // x

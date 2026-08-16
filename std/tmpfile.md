@@ -17,8 +17,9 @@ Creates a temporary file which is opened as a binary file for update, at least T
 ## Examples
 
 ```cpp
-#include <cstdio>
 #include <cassert>
+#include <cstdio>
+#include <cstring>
 
 std::FILE* tmp_file = std::tmpfile();
 std::fputs("Hello, World!", tmp_file);
@@ -26,5 +27,5 @@ std::rewind(tmp_file);
 
 char buf[14];
 std::fgets(buf, sizeof(buf), tmp_file);
-assert(strcmp(buf, "Hello, World!") == 0)
+assert(strcmp(buf, "Hello, World!") == 0);
 ```

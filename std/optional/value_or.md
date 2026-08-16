@@ -9,10 +9,8 @@ Returns the value contained or returns `default_value`.
 ## Usage
 
 ```cpp
-
 template<class U = std::remove_cv_t<T>>
 constexpr T value_or(U&& default_value) const &; (1)
-
 template<class U = std::remove_cv_t<T>>
 constexpr T value_or(U&& default_value) &&; (2)
 ```
@@ -36,7 +34,6 @@ assert(opt.value_or(10) == 43);
 ```cpp
 #include <cassert>
 #include <optional>
-#include <print>
 
 std::optional<int> opt{};
 assert(opt.value_or(10) == 10);

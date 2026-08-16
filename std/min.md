@@ -43,8 +43,9 @@ assert(std::min({5, 2, 8, 1, 9}) == 1);
 
 ```cpp
 #include <algorithm>
-#include <string_view>
 #include <cassert>
+#include <cstring>
+#include <string_view>
 
 auto shortest = [](const std::string_view s1, const std::string_view s2) {
     return s1.size() < s2.size();

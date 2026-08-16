@@ -26,9 +26,10 @@ Linear with the size of the range
 ## Examples
 
 ```cpp
-#include <cassert>
-#include <numeric>
 #include <array>
+#include <cassert>
+#include <functional>
+#include <numeric>
 
 std::array<int, 4> v{1, 2, 3, 4};
 

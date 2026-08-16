@@ -39,6 +39,7 @@ If an exception is thrown other than by the constructors, the assignment operato
 ```cpp
 #include <cassert>
 #include <string>
+#include <utility>
 #include <vector>
 
 std::vector<std::string> vec{"a", "c"};

@@ -15,10 +15,6 @@ std::pair<iterator, bool> emplace(Args&&... args);
 
 `args` are forwarded to the constructor of `value_type` (i.e. `Key`). Because the new element has to be compared against the existing keys before insertion can be decided, it may end up being constructed and then immediately destroyed if an equivalent key is already present — for `set`, unlike `map::try_emplace`, there is no way to avoid this. Returns an iterator to the inserted element, or to the existing one with the equivalent key, and a bool that is `true` only if the insertion happened.
 
-## Exceptions
-
-If an exception is thrown, this function has no effect.
-
 ## Time complexity
 
 O(log n)

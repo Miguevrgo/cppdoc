@@ -32,11 +32,9 @@ O(log n)
 #include <set>
 
 std::set<int> s{10, 20, 30};
-
 auto [first, last] = s.equal_range(20);
 assert(std::distance(first, last) == 1);
 assert(*first == 20);
-
 auto [first2, last2] = s.equal_range(25);
 assert(first2 == last2); // empty range, key not found
 ```

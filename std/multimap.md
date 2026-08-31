@@ -35,7 +35,6 @@ Like `map`, keys are sorted using the comparison function `Compare`, usually imp
 std::multimap<std::string, int> ages;
 ages.insert({"Alice", 30});
 ages.insert({"Alice", 25}); // duplicate key, still inserted
-
 assert(ages.size() == 2);
 assert(ages.count("Alice") == 2);
 ```

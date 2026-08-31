@@ -34,7 +34,6 @@ A `string_view` does not own the characters it refers to; it only stores a point
 
 std::string s = "Hello, World!";
 std::string_view sv{s};
-
 assert(sv.size() == 13);
 assert(sv.substr(7) == "World!");
 assert(sv.find("World") == 7);

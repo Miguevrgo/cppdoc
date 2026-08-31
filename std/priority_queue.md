@@ -33,9 +33,7 @@ std::priority_queue<int> pq;
 pq.push(3);
 pq.push(1);
 pq.push(4);
-
 assert(pq.top() == 4);
-
 pq.pop();
 assert(pq.top() == 3);
 assert(pq.size() == 2);

@@ -33,7 +33,6 @@ O(1) on average per erased element. Linear in the size of the unordered_map in t
 #include <unordered_map>
 
 std::unordered_map<int, int> numbers{{1, 2}, {3, 4}, {5, 6}};
-
 assert(numbers.erase(3) == 1);
 assert(numbers.erase(99) == 0);
 assert(numbers.size() == 2);

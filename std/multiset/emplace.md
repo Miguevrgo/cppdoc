@@ -15,10 +15,6 @@ iterator emplace(Args&&... args);
 
 `args` are forwarded to the constructor of `value_type` (i.e. `Key`). Since a multiset allows equivalent keys, insertion always succeeds and returns an iterator to the newly inserted element.
 
-## Exceptions
-
-If an exception is thrown, this function has no effect.
-
 ## Time complexity
 
 O(log n)

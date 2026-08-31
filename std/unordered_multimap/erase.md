@@ -33,7 +33,6 @@ O(1) on average per erased element. Linear in the size of the unordered_multimap
 #include <unordered_map>
 
 std::unordered_multimap<int, int> numbers{{1, 2}, {1, 3}, {5, 6}};
-
 assert(numbers.erase(1) == 2);
 assert(numbers.erase(99) == 0);
 assert(numbers.size() == 1);

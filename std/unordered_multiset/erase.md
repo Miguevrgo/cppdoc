@@ -33,7 +33,6 @@ O(1) on average per erased element. Linear in the size of the unordered_multiset
 #include <unordered_set>
 
 std::unordered_multiset<int> ids{10, 10, 20};
-
 assert(ids.erase(10) == 2);
 assert(ids.erase(99) == 0);
 assert(ids.size() == 1);

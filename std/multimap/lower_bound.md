@@ -31,7 +31,6 @@ O(log n)
 #include <map>
 
 std::multimap<int, int> numbers{{1, 10}, {1, 20}, {3, 30}};
-
 auto it = numbers.lower_bound(1);
 assert(it->first == 1);
 assert(it->second == 10); // first of the two elements with key 1

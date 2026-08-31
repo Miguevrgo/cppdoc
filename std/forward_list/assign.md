@@ -12,22 +12,12 @@ Replaces the contents of the list.
 void assign(size_type count, const T& value); (1)
 template<class InputIt>
 void assign(InputIt first, InputIt last);      (2)
-void assign(std::initializer_list<T> ilist);   (3)
 ```
 
 1. Replaces the contents with `count` copies of `value`.
-2. Replaces the contents with copies of the elements in range `[first, last)`. `first` and `last` must not be iterators into `*this`.
-3. Replaces the contents with the elements of `ilist`.
+2. Replaces the contents with copies of `[first, last)`. An `initializer_list` overload (3) also exists.
 
-All existing elements are destroyed and all iterators, pointers and references to them are invalidated (`before_begin()` remains valid, referring to the new front).
-
-## Exceptions
-
-If an exception is thrown, the list is left in an unspecified but valid state (basic exception guarantee).
-
-## Time complexity
-
-Linear in the new number of elements plus the old number of elements.
+All existing elements are destroyed and iterators invalidated. Linear time in the new and old size.
 
 ## Examples
 
@@ -36,14 +26,10 @@ Linear in the new number of elements plus the old number of elements.
 #include <forward_list>
 
 std::forward_list<int> fl{1, 2};
-
-fl.assign(3, 9);
+fl.assign(3, 9); // (1)
 assert((fl == std::forward_list<int>{9, 9, 9}));
 
 std::forward_list<int> other{1, 2, 3, 4};
-fl.assign(++other.begin(), other.end());
+fl.assign(++other.begin(), other.end()); // (2)
 assert((fl == std::forward_list<int>{2, 3, 4}));
-
-fl.assign({5, 6});
-assert((fl == std::forward_list<int>{5, 6}));
 ```

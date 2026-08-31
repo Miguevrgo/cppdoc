@@ -15,10 +15,6 @@ iterator emplace(const_iterator pos, Args&&... args);
 
 `args` are forwarded to the constructor of the new element, which is built directly before `pos`. Returns an iterator to the new element. If `pos` is `begin()` or `end()`, all iterators to the deque are invalidated, but references and pointers to existing elements remain valid. Otherwise, all iterators, references and pointers are invalidated.
 
-## Exceptions
-
-If an exception is thrown other than by the constructor of `T` this function has no effect.
-
 ## Time complexity
 
 Linear in the distance between `pos` and the nearer of `begin()` or `end()`.

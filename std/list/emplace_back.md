@@ -18,10 +18,6 @@ reference emplace_back(Args&&... args); [C++17]
 
 `args` are forwarded to `T`'s constructor, each keeping its value category, avoiding the temporary that `push_back` would need. Since C++17 a reference to the new element is returned.
 
-## Exceptions
-
-If an exception is thrown other than by the constructor of `T`, this function has no effect.
-
 ## Time complexity
 
 O(1)

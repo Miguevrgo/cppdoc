@@ -31,9 +31,7 @@ O(1)
 #include <stdexcept>
 
 std::array<int, 3> arr{1, 2, 3};
-
 assert(arr.at(0) == 1);
-
 try {
   arr.at(3);
   assert(false);

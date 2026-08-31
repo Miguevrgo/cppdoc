@@ -19,30 +19,17 @@ Returns a reference to the character at position `pos`, after verifying that `po
 
 Throws `std::out_of_range` if `pos >= size()`.
 
-## Time complexity
-
-O(1)
-
 ## Examples
 
 ```cpp
 #include <cassert>
+#include <stdexcept>
 #include <string>
 
 std::string s{"Hello"};
 assert(s.at(1) == 'e');
 s.at(1) = 'a';
-assert(s == "Hallo");
-```
-
-```cpp
-#include <string>
-#include <stdexcept>
-
-std::string s{"Hi"};
 try {
-    char c = s.at(5);
-} catch (std::out_of_range const& err) {
-    // handle the out-of-range access
-}
+    char c = s.at(50); // throws std::out_of_range
+} catch (std::out_of_range const&) {}
 ```

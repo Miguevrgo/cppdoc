@@ -33,7 +33,6 @@ O(1) on average per erased element. Linear in the size of the unordered_set in t
 #include <unordered_set>
 
 std::unordered_set<int> ids{10, 20, 30};
-
 assert(ids.erase(20) == 1);
 assert(ids.erase(99) == 0);
 assert(ids.size() == 2);

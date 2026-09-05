@@ -10,10 +10,10 @@ Computes the sum of the given initial value `init` and elements in the range `[f
 
 ```cpp
 template<class InputIt, class T>
-T accumulate(InputIt first, InputIt last, T init); (1) [constexpr since C++20]
+T accumulate(InputIt first, InputIt last, T init); (1)
 
 template<class InputIt, class T, class BinaryOp>
-T accumulate(InputIt first, InputIt last, T init, BinaryOp op); (2) [constexpr since C++20]
+T accumulate(InputIt first, InputIt last, T init, BinaryOp op); (2)
 ```
 
 1. Computes the sum of `init` and the elements in `[first, last)` using `operator+`.

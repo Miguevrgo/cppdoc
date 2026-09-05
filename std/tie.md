@@ -10,7 +10,7 @@ Creates a `std::tuple` of lvalue references to its arguments.
 
 ```cpp
 template<class... Types>
-constexpr std::tuple<Types&...> tie(Types&... args) noexcept; (1) [constexpr since C++14]
+constexpr std::tuple<Types&...> tie(Types&... args) noexcept; (1)
 ```
 
 Creates a tuple of lvalue references to `args`. Can be used to unpack a tuple into separate variables, or for implementing lexicographical comparisons.

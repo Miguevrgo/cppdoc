@@ -50,28 +50,53 @@ function M.path(symbol)
 	return M.docs .. "/" .. table.concat(parts, "/", 2) .. ".md"
 end
 
-function M.doc(symbol)
-	local path = symbol and M.path(symbol)
-	local fd = path and vim.uv.fs_open(path, "r", 438)
-	if not fd then
-		return nil
+local function candidate_symbols(symbol)
+	local candidates = { symbol }
+	local s = symbol:gsub("::ranges::views::", "::views::")
+	if s ~= symbol then
+		table.insert(candidates, s)
 	end
-	local data = vim.uv.fs_read(fd, vim.uv.fs_fstat(fd).size, 0)
-	vim.uv.fs_close(fd)
-	local body = data:match("^%-%-%-\n.-\n%-%-%-\n(.*)$")
-	return body and vim.trim(body)
+	if s:find("basic_") then
+		table.insert(candidates, (s:gsub("basic_", "")))
+	end
+	return candidates
+end
+
+local function resolve_doc(symbol)
+	for _, sym in ipairs(candidate_symbols(symbol)) do
+		local path = M.path(sym)
+		local fd = path and vim.uv.fs_open(path, "r", 438)
+		if fd then
+			local data = vim.uv.fs_read(fd, vim.uv.fs_fstat(fd).size, 0)
+			vim.uv.fs_close(fd)
+			local body = data:match("^%-%-%-\n.-\n%-%-%-\n(.*)$")
+			if body then
+				return vim.trim(body), sym
+			end
+		end
+	end
+	return nil, symbol
+end
+
+function M.doc(symbol)
+	local body = symbol and resolve_doc(symbol)
+	return body
 end
 
 local function std_symbol(entries)
+	local first
 	for _, e in ipairs(entries or {}) do
 		if type(e.usr) == "string" and e.usr:find("^c:@N@std@") and type(e.name) == "string" then
 			local container = type(e.containerName) == "string" and (e.containerName:gsub("::$", "")) or ""
-			if container ~= "" then
-				return container .. "::" .. e.name
+			local sym = container ~= "" and (container .. "::" .. e.name) or e.name
+			first = first or sym
+			local body, resolved_sym = resolve_doc(sym)
+			if body then
+				return resolved_sym
 			end
-			return e.name
 		end
 	end
+	return first
 end
 
 function M.symbol_at_cursor(callback)

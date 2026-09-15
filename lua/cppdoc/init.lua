@@ -56,8 +56,21 @@ local function candidate_symbols(symbol)
 	if s ~= symbol then
 		table.insert(candidates, s)
 	end
+	-- Strip inline ABI version namespaces: _V2, __cxx11, __1
+	local no_inline = s:gsub("::_V%d+::", "::"):gsub("::__cxx%d+::", "::"):gsub("::__%d+::", "::")
+	if no_inline ~= s then
+		table.insert(candidates, no_inline)
+		s = no_inline
+	end
 	if s:find("basic_") then
 		table.insert(candidates, (s:gsub("basic_", "")))
+	end
+	if s:find("__") then
+		local no_impl = s:gsub("__", "")
+		table.insert(candidates, no_impl)
+		if no_impl:find("basic_") then
+			table.insert(candidates, (no_impl:gsub("basic_", "")))
+		end
 	end
 	return candidates
 end
